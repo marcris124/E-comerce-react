@@ -64,7 +64,7 @@ const Home = () => {
               variant="outline-secondary"
               id="button-addon2">
 
-              Button
+                <i class="fa-solid fa-magnifying-glass"></i>  
             </Button>
           </InputGroup>
 
