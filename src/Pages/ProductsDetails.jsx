@@ -34,7 +34,7 @@ const ProductsDetails = () => {
       {/* Descripcion */ }
         <Col lg={5}>
 
-        <Carousel fade className='m-5'>
+        <Carousel fade className='m-5' style={{}}>
       <Carousel.Item>
         <img
           className="d-block w-100"

@@ -81,12 +81,13 @@ const Home = () => {
 
                 <Col key={products.id} onClick={() => navigate(`/prducts/${products.id}`)} >
                     <Card style={{height:"100%"}}>
+                      <Card.Body style={{display: "flex", flexDirection: "column", justifyContent: "flex-end" , alignItems:"flex-start"}}>
                         <Card.Img
                           variant="top"
                           src={products.images?.[0].url}
                           style={{ height:200,objectFit: "contain" }}
                       />
-                        <Card.Body>
+                        
                           <Card.Title>{products.title}</Card.Title>
                             <Card.Text>
                               $ {products.price}
