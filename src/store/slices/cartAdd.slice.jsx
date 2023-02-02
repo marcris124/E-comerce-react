@@ -30,6 +30,13 @@ export const addPurchaseThunk = (cartShopAdd) => (dispatch) => {
 }
 
 
+export const purchaseCartThunk = () => (dispatch) => {
+    dispatch(setIsLoading(true));
+    return axios.post("https://e-commerce-api-v2.academlo.tech/api/v1/purchases ", {} , getConfig())
+        .then(res => dispatch(cartAddThunk()))
+        .finally(() => dispatch(setIsLoading(false)));
+}
+
 export const { setAddCart } = cartAddSlice.actions;
 
 export default cartAddSlice.reducer;

@@ -34,7 +34,7 @@ const ProductsDetails = () => {
     
     dispatch(addPurchaseThunk(cartShopAdd))
   }
-  
+  console.log(products);
 
  
 

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, Card, Col, Form, InputGroup, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { addPurchaseThunk } from '../store/slices/cartAdd.slice';
 import { filterproductsCategoryThunk, filterProductsLineThunk, getProductsThunk } from '../store/slices/products.slice';
 
 const Home = () => {
@@ -25,6 +26,17 @@ const Home = () => {
   }, [])
 
 
+  const [rate, setrate] =useState(1)
+
+  const addToFavorites = (products) => {
+    const cartShopAdd = {
+      quantity: rate,
+      productId:products.id
+    }
+    
+    dispatch(addPurchaseThunk(cartShopAdd))
+  }
+console.log(productsList);
 
   return (
 
@@ -82,10 +94,11 @@ const Home = () => {
               productsList.map(products => (
 
 
-                <Col key={products.id} onClick={() => navigate(`/prducts/${products.id}`)} >
+                <Col key={products.id}  >
                     <Card style={{width:"80%",height:"100%",display:"flex", justifyContent:"center" , alignItems:"center" }}>
                      
                         <Card.Img
+                          onClick={() => navigate(`/prducts/${products.id}`)}
                           src={products.images?.[0].url}
                           style={{ margin:"1rem" , width:"200",height:"200px",objectFit: "contain" }}
                       />
@@ -94,7 +107,7 @@ const Home = () => {
                             <Card.Text style={{fontFamily:"'Roboto', sans-serif"}}>
                               $ {products.price}
                              </Card.Text>
-                        <Button variant="danger"><i className="fa-solid fa-cart-shopping"></i></Button>
+                        <Button variant="danger" onClick={() => addToFavorites(products)}><i className="fa-solid fa-cart-shopping"></i></Button>
                         </Card.Body>
                     </Card>
                 </Col>
