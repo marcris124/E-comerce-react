@@ -25,6 +25,7 @@ const Home = () => {
   }, [])
 
 
+
   return (
 
     <div>
@@ -34,11 +35,11 @@ const Home = () => {
 
           <div className="wrapper" tabIndex="0">
 
-            <h3>Categoryes</h3>
+            <h3>Categories <i className="fa-solid fa-arrow-down"></i></h3>
             {
               categories.map(category => (
-
-                <button className="menu-item" key={category.id} onClick={() => dispatch(filterproductsCategoryThunk(category.id))}>  <h4> {category.name} </h4>  </button>
+                    
+                <button className="menu-item" key={category.id} onClick={() => dispatch(filterproductsCategoryThunk(category.id))}>{category.name} </button>
 
               ))
 
@@ -49,7 +50,7 @@ const Home = () => {
 
         <Col lg={10}>
 
-          <h1>Home</h1>
+          <h1>Home  <i className="fa-solid fa-house"></i></h1>
 
           <InputGroup className="mb-3">
             <Form.Control
@@ -61,10 +62,12 @@ const Home = () => {
             />
             <Button
               onClick={() => dispatch(filterProductsLineThunk(productSearch))}
-              variant="outline-secondary"
-              id="button-addon2">
+              variant="info"
+              id="button-addon2"
+              
+              >
 
-                <i class="fa-solid fa-magnifying-glass"></i>  
+                <i className="fa-solid fa-magnifying-glass"></i>  
             </Button>
           </InputGroup>
 
@@ -73,23 +76,22 @@ const Home = () => {
 
 
 
-          <Row xs={2} md={3} lg={4} className="g-3">
+          <Row xs={2} md={3} lg={3} className="g-3">
 
             {
               productsList.map(products => (
 
 
                 <Col key={products.id} onClick={() => navigate(`/prducts/${products.id}`)} >
-                    <Card style={{height:"100%"}}>
-                      <Card.Body style={{display: "flex", flexDirection: "column", justifyContent: "flex-end" , alignItems:"flex-start"}}>
+                    <Card style={{width:"80%",height:"100%",display:"flex", justifyContent:"center" , alignItems:"center" }}>
+                     
                         <Card.Img
-                          variant="top"
                           src={products.images?.[0].url}
-                          style={{ height:200,objectFit: "contain" }}
+                          style={{ margin:"1rem" , width:"200",height:"200px",objectFit: "contain" }}
                       />
-                        
-                          <Card.Title>{products.title}</Card.Title>
-                            <Card.Text>
+                         <Card.Body style={{borderTop:"1px solid #d1d1d1" ,width:"100%",   display: "flex", flexDirection: "column", justifyContent: "flex-end" , alignItems:"flex-start"}}>
+                          <Card.Title  style={{fontSize:"1.2rem"  }}>  {products.title} </Card.Title>
+                            <Card.Text style={{fontFamily:"'Roboto', sans-serif"}}>
                               $ {products.price}
                              </Card.Text>
                         <Button variant="danger"><i className="fa-solid fa-cart-shopping"></i></Button>

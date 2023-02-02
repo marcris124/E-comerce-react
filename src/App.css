@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@800&family=Inter:wght@300&family=Poppins:wght@700&family=Roboto:wght@500&family=Work+Sans&display=swap');
+
 *{
   margin: 0;
   padding: 0;
@@ -7,7 +9,6 @@
 
 
 .productsList{
-  border: 3px solid green;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -51,13 +52,12 @@
 .menu-item {
   width: 100%;
   max-height: 100px;
-  box-shadow: 0px 4px 28px 0px rgba(0,0,0,0.75);
   color: rgb(0, 0, 0);
   border-radius: 8px;
   text-align: center;
   padding: 5px;
-  margin-bottom: 4px;
-
+  background: transparent;
+  margin-bottom: 1rem;
   transform-origin: 0 0;
   transform: translateX(-100px);
   opacity: 0;
@@ -67,10 +67,6 @@
   transition-timing-function: ease;
 }
 
-.menu-item:hover{
-  background-color: aqua;
-
-}
 
 .wrapper:is(:hover, :focus) .menu-item {
   transform: translateX(0);
@@ -107,8 +103,60 @@
 }
 
 .card{
-  box-shadow: -4px 4px 17px 0px rgba(0,0,0,0.75);
+
   cursor: pointer;
 }
 
 
+.cart-Add{
+  border-bottom: 1px solid gray;
+  width: 100%;
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 3rem;
+}
+
+.cart-Add img{
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.quantity{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  font-size: 1rem;
+
+}
+
+.title-shop{
+  width: 70%;
+}
+
+
+
+.price-cart{
+
+
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.quantity p{
+  font-family: 'Poppins', sans-serif;
+
+}
+
+.quantity span{
+  border-top:1px solid gray ;
+
+  font-size: 1.2rem;
+}

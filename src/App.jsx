@@ -11,6 +11,7 @@ import AppNavbar from './Components/AppNavbar'
 import LoadingScreen from './Components/LoadingScreen'
 import { useSelector } from 'react-redux'
 import { Container } from 'react-bootstrap'
+import ProtectedRoutes from './Components/ProtectedRoutes'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,13 +24,19 @@ function App() {
 
         <AppNavbar />
         {isLoading && <LoadingScreen />}
-        <Container className='my-7'>
+        <Container className='my-1' fluid="true">
           <Routes>
 
             <Route path='/' element={<Home />} />
             <Route path='/prducts/:id' element={<ProductsDetails />} />
             <Route path='/login' element={<Login />} />
-            <Route path='/purchases' element={<Purchases />} />
+            
+
+            <Route element={<ProtectedRoutes/>}>
+
+              <Route path='/purchases' element={<Purchases />} />
+
+            </Route>
 
 
           </Routes>
