@@ -17,7 +17,7 @@ const PurchaseSidebar = ({show, handleClose}) => {
 
   const deleteCart = (cart) => {
     axios.delete(`https://e-commerce-api-v2.academlo.tech/api/v1/cart/${cart.id}`, getConfig())
-
+    .then(() => dispatch(cartAddThunk()))
 
   }
 
@@ -30,7 +30,7 @@ console.log(addCart);
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Cart Shop</Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body style={{display:"flex", flexDirection:"column"}}>
+        <Offcanvas.Body style={{display:"flex", flexDirection:"column",  alignItems:"center"}}>
          {
           addCart.map(cart => (
           <div className='cart-Add' key={cart.id}>
@@ -43,7 +43,7 @@ console.log(addCart);
               <div className='title-shop'>
               <p style={{fontFamily:"'Roboto', sans-serif"}}> {cart.product?.title} </p> 
 
-              <p> quantity <br />  <span>  {cart.quantity} </span>    </p>
+              <p> quantity <br />  <span style={{color:"blue"}}>  {cart.quantity} </span>    </p>
                 </div>
             </div>
 
@@ -61,7 +61,7 @@ console.log(addCart);
 
          }
 
-                    <Button style={{ width:"25%" , position:"sticky" ,position: "fixed", bottom: "20px",left: "4rem"} } onClick={() => dispatch(purchaseCartThunk())}> chekOut</Button>
+                    <Button  style={{ width:"60%"  ,position: "sticky", bottom: "20px", fontFamily:"'Roboto', sans-serif"} } onClick={() => dispatch(purchaseCartThunk())}> chekOut</Button>
         </Offcanvas.Body>
       </Offcanvas>
   );
