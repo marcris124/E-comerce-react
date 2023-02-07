@@ -48,6 +48,11 @@ const Login = () => {
         <div className="container">
             <div className="from">
               <h2>Login</h2>
+              <p className='example-email'>
+              john@gmail.com <br />
+              john1234
+              </p>
+
               <form onSubmit={handleSubmit(submit)}>
                 <div className="inputBox">
                   <label htmlFor="email">Email</label>

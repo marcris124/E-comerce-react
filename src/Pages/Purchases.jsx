@@ -18,8 +18,9 @@ const Purchases = () => {
 
   return (
     <div>
-      <h1>purchases</h1>
+      
       <Container className='my-1' fluid="xl">
+        <h1>purchases</h1>
         <Row xs={2} md={3} lg={1} className="g-3">
 
           {

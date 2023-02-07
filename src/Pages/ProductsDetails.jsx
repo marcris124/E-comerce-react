@@ -43,8 +43,9 @@ const ProductsDetails = () => {
      
 
 
-      <h1>Products Details</h1>
+      
       <Container className='my-1' fluid="xl">
+        <h1>Product Detail</h1>
     <Row className='me-5' style={{marginBottom:"7rem"}} >
 
       {/* Descripcion */ }
@@ -90,7 +91,7 @@ const ProductsDetails = () => {
           
         <Col lg={7} style={{display:"flex", alignItems:"flex-star", flexDirection:"column", justifyContent:"center", gap:"1rem" }}>
         
-       <p> {products.brand} </p> 
+       <h4 style={{color:'gray'}}> {products.brand} </h4> 
         <h2> {products.title} </h2>
        <p> {products.description} </p>
 
